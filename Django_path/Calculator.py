@@ -6,41 +6,53 @@ operation = int(input("Choose:\n"
 "=> "))
 x = 0
 sum = 0
-difference = 0
+difference = None
 product = 1
 divide = 1
 value = []
 while x==False:
+    #Addition
     if operation == 1:
         numbers = input("Add number? : ")
         if numbers == 'q':
             break
         else:
             numbers = int(numbers)
-    
-    # Letting a user see stored numbers inside a list or array.
+            value.append(numbers)
             sum += numbers
+
+    #Subtraction        
     elif operation == 2:
-        numbers = input("Add number? : ")
+        numbers = input("Subtract number? : ")
         if numbers == 'q':
             break
         else:
             numbers = int(numbers)
-        difference -= numbers
+            value.append(numbers)
+            if difference == None:
+                difference = int(numbers)
+            else:
+                difference -= numbers
+
+    #Multiplication            
     elif operation == 3:
-        numbers = input("Add number? : ")
+        numbers = input("Multiply number? : ")
         if numbers == 'q':
             break
         else:
             numbers = int(numbers)
+            value.append(numbers)
             product *= numbers
+
+    #Division
     elif operation == 4:
-        numbers = input("Add number? : ")
+        numbers = input("Divide number? : ")
         if numbers == 'q':
             break
         else:
             numbers = int(numbers)
             if numbers != 0:
+                value.append(numbers)
                 divide /= numbers
             else:
                 print("Error: Division by zero is not allowed")
@@ -57,3 +69,10 @@ elif operation == 4:
     print("Quotient is {}".format(divide))
 else:
     print("Invalid operation")
+
+
+see = input("Do you want to checkl the entered values?(y/n): ")
+if see == 'y':
+    print(value)
+else:
+    print("Exiting the program")
